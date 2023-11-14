@@ -1,51 +1,52 @@
-<div class="row">
-  <div class="col-auto">
+<div class="container-fluid">
+  <div class="row">
     <h2>Welcome, {{name}}!</h2>
   </div>
-</div>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Post:</h3>
+  <div class="row row-cols-2 d-flex justify-content-left">
+    <div class="col-sm-6 justify-content-left">
+      <h3>Create a New Post:</h3>
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      {{!-- <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div> --}}
-      <div class="form-group">
-        <label for="post-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+      <form class="form new-post-form">
+        <div class="col cols-1 text-center">
+        <div class="form-group">
+          <label  for="post-title">Title:</label> <br>
+          <input class="form-input" type="text" id="post-name" name="post-name" />
+        </div>
+        {{!-- <div class="form-group">
+          <label for="project-funding">needed funding ($):</label>
+          <input class="form-input" type="number" id="project-funding" name="project-funding" />
+        </div> --}}
+        <div class="form-group">
+          <label for="post-desc">description:</label><br>
+          <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        </div>
+     
 
-  {{#if posts.length}}
-  <div class="col-md-6 project-list">
-    <h3>Recent Posts:</h3>
-
-    {{#each posts as |post|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
-      </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
     </div>
-    {{/each}}
+       </div>
+
+    {{#if posts.length}}
+    <div class="col-md-6 project-list">
+      <h3>Recent Posts:</h3>
+
+      {{#each posts as |post|}}
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
   </div>
-  {{/if}}
-
- 
-
-  <script src="/js/profile.js"></script>
-  
-  
+</div>
+<script src="/js/profile.js"></script>

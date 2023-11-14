@@ -31,3 +31,8 @@ body {
   color: #065b83;
   text-decoration: none;
 }
+form{
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: end;
+}
